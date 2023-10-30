@@ -6,7 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 import my.lovely.gamecounter.R
+import my.lovely.gamecounter.data.repository.BalanceRepositoryImpl
+import my.lovely.gamecounter.domain.repository.BalanceRepository
+import my.lovely.gamecounter.domain.usecase.ChangeBalanceUseCase
 import my.lovely.gamecounter.presentation.screens.balance.BalanceScreen
+import my.lovely.gamecounter.presentation.screens.balance.BalanceViewModel
 import my.lovely.gamecounter.presentation.screens.streets.StreetScreen
 
 interface Destinations {
@@ -30,7 +34,9 @@ object Streets : Destinations {
 object Balance : Destinations {
     override val icon: Int = R.drawable.main
     override val route: String = "balance"
-    override val screen: @Composable () -> Unit = { BalanceScreen() }
+    override val screen: @Composable () -> Unit = { BalanceScreen(balanceViewModel = BalanceViewModel(
+        ChangeBalanceUseCase(balanceRepository = BalanceRepositoryImpl())
+    )) }
 }
 
 val BottomNavigationScreens = listOf(MainScreen, Streets, Balance)
