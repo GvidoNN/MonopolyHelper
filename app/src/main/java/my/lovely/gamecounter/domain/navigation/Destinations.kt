@@ -11,6 +11,7 @@ import my.lovely.gamecounter.domain.repository.BalanceRepository
 import my.lovely.gamecounter.domain.usecase.ChangeBalanceUseCase
 import my.lovely.gamecounter.presentation.screens.balance.BalanceScreen
 import my.lovely.gamecounter.presentation.screens.balance.BalanceViewModel
+import my.lovely.gamecounter.presentation.screens.balance.BalanceViewState
 import my.lovely.gamecounter.presentation.screens.streets.StreetScreen
 
 interface Destinations {
@@ -22,7 +23,8 @@ interface Destinations {
 object MainScreen : Destinations {
     override val icon: Int = R.drawable.main
     override val route: String = "main"
-    override val screen: @Composable () -> Unit = { my.lovely.gamecounter.presentation.screens.main.MainScreen() }
+    override val screen: @Composable () -> Unit =
+        { my.lovely.gamecounter.presentation.screens.main.MainScreen() }
 }
 
 object Streets : Destinations {
@@ -34,9 +36,16 @@ object Streets : Destinations {
 object Balance : Destinations {
     override val icon: Int = R.drawable.main
     override val route: String = "balance"
-    override val screen: @Composable () -> Unit = { BalanceScreen(balanceViewModel = BalanceViewModel(
-        ChangeBalanceUseCase(balanceRepository = BalanceRepositoryImpl())
-    )) }
+    override val screen: @Composable () -> Unit = {
+        BalanceScreen(
+            balanceViewModel = BalanceViewModel(
+                ChangeBalanceUseCase(balanceRepository = BalanceRepositoryImpl())
+            ),
+            balanceViewState = BalanceViewState(
+                currentMoney = 0
+            )
+        )
+    }
 }
 
 val BottomNavigationScreens = listOf(MainScreen, Streets, Balance)
