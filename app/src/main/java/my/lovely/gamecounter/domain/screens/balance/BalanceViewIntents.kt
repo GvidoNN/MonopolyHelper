@@ -1,6 +1,8 @@
-package my.lovely.gamecounter.presentation.screens.balance
+package my.lovely.gamecounter.domain.screens.balance
 
-sealed class BalanceViewIntents {
+import my.lovely.gamecounter.domain.screens.base.ViewIntent
+
+sealed class BalanceViewIntents: ViewIntent {
 
     data class MinusInBalance(val money: Int): BalanceViewIntents()
 
