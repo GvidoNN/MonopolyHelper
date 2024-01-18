@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add"> Добавить</string>
+    <string name="substract"> Отнять</string>
+    <string name="rent">Арендная плата: %d M</string>
+    <string name="with_one_house">С одним домом</string>
+    <string name="with_two_house">С двумя домами</string>
+    <string name="with_three_house">С тремя домами</string>
+    <string name="with_four_house">С четырьмя домами</string>
+    <string name="with_one_hotel">С одним ОТЕЛЕМ</string>
+    <string name="mortgage_value">Залоговая стоимость: %d M</string>
+    <string name="hotel_cost">Стоимость дома: %d M</string>
+    <string name="house_cost">Стоимость отеля: %d M</string>
+</resources>

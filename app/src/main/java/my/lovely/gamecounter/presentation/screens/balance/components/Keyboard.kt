@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import my.lovely.gamecounter.R
@@ -109,14 +110,14 @@ fun Keyboard(
                         }
                 ) {
                     TextWithShadow(
-                        text = "Добавить",
+                        text = stringResource(id = R.string.add),
                         fontSize = 30,
                         modifier = Modifier
                             .wrapContentHeight()
                             .width(20.dp)
                             .padding(start = 15.dp, top = 5.dp)
                             .clickable {
-                                if(text.value.isNotEmpty()){
+                                if (text.value.isNotEmpty()) {
                                     onPlus(text.value.toInt())
                                 }
                             }
@@ -246,14 +247,14 @@ fun Keyboard(
                         }
                 ) {
                     TextWithShadow(
-                        text = " Отнять",
+                        text = stringResource(id = R.string.substract),
                         fontSize = 30,
                         modifier = Modifier
                             .wrapContentHeight()
                             .width(24.dp)
                             .padding(start = 15.dp)
                             .clickable {
-                                if(text.value.isNotEmpty()){
+                                if (text.value.isNotEmpty()) {
                                     onMinus(text.value.toInt())
                                 }
                             }
