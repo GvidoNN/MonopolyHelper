@@ -3,7 +3,6 @@ package my.lovely.gamecounter.presentation.screens.balance
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,11 +37,6 @@ fun BalanceScreen(
     balanceViewModel: BalanceViewModel,
 ) {
     val balanceViewState by balanceViewModel.viewState.collectAsState()
-
-    LaunchedEffect(true) {
-        delay(2000)
-        Log.d("MyLog", "${balanceViewState.currentMoney}")
-    }
 
     Box(
         modifier = Modifier
